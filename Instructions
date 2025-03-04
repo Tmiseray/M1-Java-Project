@@ -1,0 +1,116 @@
+Module 1 Project: Student Management System (SMS)
+
+Java Student Management System
+The Student Management System (SMS) will be a command-line interface (CLI) program that allows users to manage student
+and teacher records. The system will enable functionalities like adding students/teachers, updating information,
+viewing details, and managing courses.
+
+Develop a Java program with separate classes for managing students, teachers, and courses.
+The program should allow basic CRUD (Create, Read, Update, Delete) operations for students, encapsulation,
+inheritance, and the ability to retrieve information by ID.
+
+Requirements
+You will build three main classes:
+    - Person
+    - Student
+    - Teacher
+    - Course
+
+You will create a menu-based system for managing students, teachers, and courses.
+
+Specifications
+1. Class Definitions
+    - Person Class (Super Class):
+        - Fields:
+            - String name
+            - int age
+            - String email
+        - Constructor:
+            - Initializes:
+                - name
+                - email
+                - age
+        - Methods: getter and setter methods
+    - Student Class:
+        - Extends Person.
+        - Additional Fields:
+            - int studentId
+            - int grade
+            - ArrayList<Course> courses (up to 5 courses).
+        - Constructor:
+            - Initializes:
+                - name
+                - age
+                - email
+                - grade
+                - studentId.
+        - Methods: addCourse, getCourse as well as Getter and Setter methods
+    - Teacher Class:
+        - Extends Person.
+        - Additional Fields:
+            - int teacherId
+            - String subject
+            - ArrayList<Course> courses,  (up to 3 courses taught).
+        - Constructor:
+            - Initializes:
+                - name
+                - age
+                - email
+                - subject
+        - Methods: addCourse, getCourse and both getter and setter methods
+    - Course Class:
+        - Fields:
+            - String courseName
+            - int courseId.
+        - Constructor:
+            - Initializes:
+                - courseName
+                - courseId
+        - Methods: getter and setter methods
+2. StudentManagementSystem Class
+    - Implement a menu-driven system where the user can:
+        - Add a Student
+        - Add a Teacher
+        - Add a Course
+        - Assign Courses to Students
+        - Assign Courses to Teachers
+        - View Student by ID
+        - View every Student and Teacher
+        - View every Course
+        - Update Student
+        - Delete Student
+        - Exit
+    - Use separate lists for students, teachers, and courses. You can use an ArrayList for each.
+3. CRUD Operations:
+    - Create:
+        - Ability to add new students, teachers, and courses.
+        - When you are generating IDs for students and courses, make sure they are unique.
+    - Read:
+        - Ability to view all students, teachers, or courses.
+    - Update:
+        - Ability to update details (like student name, age, etc.) for students or teachers.
+    - Delete:
+        - Ability to remove students, teachers, or courses.
+4. Inheritance:
+    - Students and teachers inherit common attributes (name, age, email) from the Person class.
+5. Encapsulation
+    - Basic encapsulation principles should be implemented such as private instance variables that can only be accessed via getters or modified via setters
+    - Ensure that names and emails entered are not blank, ages are not negative, etc.
+6. Array Manipulation:
+    - Students and teachers can enroll in or teach multiple courses.
+    - Ensure each student can take up to 5 courses, and each teacher can teach up to 3 courses.
+
+Expected Behavior:
+1. Add a Student/Teacher:
+    - When the user chooses to add a student or teacher, prompt for their details and add them to the respective array.
+2. Add a Course:
+    - Allow the user to create a course by specifying a course name and course ID.
+3. Assign Courses:
+    - The user should be able to assign courses to students or teachers.
+    - Ensure that students cannot be assigned more than 5 courses and teachers cannot be assigned more than 3.
+4. View Information:
+    - Provide an option to view all students, teachers, and courses, view individual Students by ID, and an ability to view all students.
+5. Update Information:
+    - Allow users to update a student’s details.
+6. Delete Functionality:
+    - Provide a way to remove a student by their ID.

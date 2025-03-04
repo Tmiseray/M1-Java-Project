@@ -1,32 +1,44 @@
 package SMS;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Course {
-    private String courseName;
-    private int courseId;
+    private static final AtomicInteger idCounter = new AtomicInteger(0);
+    private static final int MIN_COURSE_NAME_LENGTH = 3;
 
-    public Course(String courseName, int courseId) {
+    private String courseName;
+    private String courseId;
+
+    public Course(String courseName) {
+        if (courseName == null || courseName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Course Name cannot be null or empty.");
+        }
+        if (courseName.length() <= MIN_COURSE_NAME_LENGTH) {
+            throw new IllegalArgumentException("Course Name must be at least " + MIN_COURSE_NAME_LENGTH + " characters long.");
+        }
         this.courseName = courseName;
-        this.courseId = courseId;
+        this.courseId = "C" + idCounter.incrementAndGet();
     }
 
+    // Course Name getter
     public String getCourseName() {
         return courseName;
     }
 
+    // Course Name setter
     public void setCourseName(String courseName) {
-        if(courseName.length() <= 3) {
-            System.out.println("Course Name must be atleast 3 characters long.");
-        } else {
-            this.courseName = courseName;
+        if (courseName == null || courseName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Course Name cannot be null or empty.");
         }
+        if (courseName.length() <= MIN_COURSE_NAME_LENGTH) {
+            throw new IllegalArgumentException("Course Name must be at least " + MIN_COURSE_NAME_LENGTH + " characters long.");
+        }
+        this.courseName = courseName;
     }
 
-    public int getCourseId() {
+    // Course ID Getter
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
-
-    }
 
 }

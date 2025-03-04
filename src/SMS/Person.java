@@ -6,9 +6,27 @@ public class Person {
     private String email;
 
     public Person(String name, int age, String email) {
+        validateAge(age);
+        validateEmail(email);
+
         this.name = name;
         this.age = age;
         this.email = email;
+    }
+
+    // Age Validation
+    public void validateAge(int age) {
+        if (age < 5) {
+            throw new IllegalArgumentException("Age cannot be less than 5.");
+        }
+    }
+
+    // Email Validation
+    public void validateEmail(String email) {
+        if (!email.matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b")) {
+            throw new IllegalArgumentException("Must enter a valid email address. EX: example@example.com");
+        }
+
     }
 
     // Name Getter
@@ -28,11 +46,8 @@ public class Person {
 
     // Age Setter
     public void setAge(int age) {
-        if (age >= 0) {
-            this.age = age;
-        } else {
-            System.out.println("\nAge cannot be negative");
-        }
+        validateAge(age);
+        this.age = age;
     }
 
     // Email Getter
@@ -42,12 +57,7 @@ public class Person {
 
     // Email Setter
     public void setEmail(String email) {
-        if (!email.matches(
-                "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"
-        )) {
-            System.out.println("Must enter a valid email address. EX: example@example.com");
-        } else {
-            this.email = email;
-        }
+        validateEmail(email);
+        this.email = email;
     }
 }
